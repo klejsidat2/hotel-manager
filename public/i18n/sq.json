@@ -1,0 +1,129 @@
+{
+  "STATS": {
+    "TITLE": "Statistika",
+    "CONFIRMED": "Konfirmuar",
+    "REVENUE": "Të ardhura",
+    "OCCUPANCY": "Zënie e dhomave"
+  },
+  "FORM": {
+    "TITLE": "Rezervim i ri",
+    "GUEST": "Mysafiri",
+    "GUEST_PLACEHOLDER": "Emri",
+    "GUEST_REQUIRED": "Emri është i detyrueshëm.",
+    "GUEST_MIN": "Të paktën 2 shkronja.",
+    "ROOM": "Dhoma",
+    "ROOM_REQUIRED": "Dhoma është e detyrueshme.",
+    "ROOM_FORMAT": "Dhoma ka 3 shifra (p.sh. 101).",
+    "CHECK_IN": "Hyrja",
+    "CHECK_OUT": "Dalja",
+    "PICK_DATE": "Zgjidh datën.",
+    "PRICE": "Çmimi / natë (€)",
+    "PRICE_MIN": "Çmimi duhet të jetë të paktën 1.",
+    "SUBMIT": "Shto",
+    "DATES_ORDER": "Data e daljes duhet të jetë pas datës së hyrjes.",
+    "ROOM_TAKEN": "Dhoma është e zënë në ato data.",
+    "CHECKING": "Po kontrollohet disponueshmëria..."
+  },
+  "PAGINATION": { "PREV": "‹ Mbrapa", "NEXT": "Përpara ›" },
+  "STATUS": {
+    "all": "Të gjitha",
+    "pending": "Në pritje",
+    "confirmed": "Konfirmuar",
+    "cancelled": "Anuluar"
+  },
+  "FILTER": { "LABEL": "Filtro sipas statusit" },
+  "LIST": {
+    "TITLE": "Rezervimet",
+    "SEARCH_LABEL": "Kërko (emër ose dhomë)",
+    "SEARCH_PLACEHOLDER": "Kërko...",
+    "CLEAR_CANCELLED": "Pastro të anuluarat",
+    "EMPTY": "Nuk ka rezervime për t'u shfaqur."
+  },
+  "ITEM": {
+    "ROOM": "Dhoma",
+    "NIGHTS": "net",
+    "STATUS": "Statusi",
+    "CONFIRM": "Konfirmo",
+    "CANCEL": "Anulo",
+    "DELETE": "Fshi",
+    "CONFIRM_CANCEL": "Të anulohet rezervimi?",
+    "CONFIRM_DELETE": "Të fshihet rezervimi përgjithmonë?"
+  },
+  "MESSAGES": {
+    "SERVER_ERROR": "Nuk u arrit serveri. Kontrollo që është i ndezur.",
+    "ADDED": "U shtua rezervimi për {{name}}.",
+    "ADD_FAILED": "Shtimi dështoi.",
+    "STATUS_CHANGED": "Statusi u ndryshua në \"{{status}}\".",
+    "CHANGE_FAILED": "Ndryshimi dështoi, u rikthye.",
+    "DELETED": "Rezervimi u fshi.",
+    "DELETE_FAILED": "Fshirja dështoi, u rikthye.",
+    "CLEARED": "U pastruan rezervimet e anuluara.",
+    "CLEAR_FAILED": "Pastrimi dështoi, u rikthye."
+  },
+  "DETAILS": {
+    "LOADING": "Po ngarkohet...",
+    "ROOM": "Dhoma",
+    "CHECK_IN": "Hyrja",
+    "CHECK_OUT": "Dalja",
+    "NIGHTS": "Net",
+    "TOTAL": "Totali",
+    "STATUS": "Statusi",
+    "NOT_FOUND": "Rezervimi nuk u gjet.",
+    "BACK": "Kthehu te rezervimet"
+  },
+  "NOT_FOUND": {
+    "MESSAGE": "Faqja që kërkon nuk u gjet.",
+    "BACK": "Kthehu te rezervimet"
+  },
+     "NAV": {
+    "HOME": "Faqja kryesore",
+    "HOTELS": "Hotelet",
+    "ROOMS": "Dhomat",
+    "BOOK": "Rezervo",
+    "ABOUT": "Rreth nesh",
+    "CONTACT": "Kontakt",
+    "ADMIN": "Menaxho rezervimet",
+    "ADMIN_ROOMS": "Menaxho dhomat",
+    "RESERVATIONS": "Rezervimet"
+  },
+  "COMMON": {
+    "EMAIL": "Email",
+    "EMAIL_INVALID": "Shkruaj një email të vlefshëm.",
+    "PASSWORD": "Fjalëkalimi",
+    "PASSWORD_MIN": "Të paktën 6 karaktere.",
+    "LOGOUT": "Dil"
+  },
+  "LANGUAGE": {
+    "TITLE": "Zgjidh gjuhën",
+    "SOON": "Së shpejti"
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Hyrje",
+      "SUBMIT": "Hyr",
+      "NO_ACCOUNT": "Nuk ke llogari?",
+      "GO_SIGNUP": "Regjistrohu",
+       "EMAIL_INVALID": "Shkruaj një email të vlefshëm.",
+      "PASSWORD_REQUIRED": "Fjalëkalimi është i detyrueshëm."
+    },
+    "SIGNUP": {
+      "TITLE": "Regjistrim",
+      "NAME": "Emri",
+      "CONFIRM": "Përsërit fjalëkalimin",
+      "NAME_MIN": "Të paktën 2 shkronja.",
+      "PASSWORD_MIN": "Të paktën 6 karaktere.",
+      "CONFIRM_REQUIRED": "Përsërit fjalëkalimin.",
+      "MISMATCH": "Fjalëkalimet nuk përputhen.",
+      "SUBMIT": "Regjistrohu",
+      "HAVE_ACCOUNT": "Ke llogari?",
+      "GO_LOGIN": "Hyr"
+    }
+  },
+  "FOOTER": { "TEXT": "Të gjitha të drejtat e rezervuara" },
+  "HOME": {
+    "TITLE": "Mirë se vini te Hotel Manager",
+    "SUBTITLE": "Zgjidhni dhomën tuaj dhe rezervoni në pak hapa, pa hapur llogari.",
+    "BROWSE": "Shiko dhomat",
+    "CONTACT": "Na kontaktoni"
+  }
+}

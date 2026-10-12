@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.error {
+  color: #c53030;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.form-error {
+  color: #c53030;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.switch {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #2b6cb0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.hint {
+  color: #718096;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.75rem;
+}

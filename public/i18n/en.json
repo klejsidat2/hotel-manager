@@ -1,0 +1,130 @@
+{
+  "STATS": {
+    "TITLE": "Statistics",
+    "CONFIRMED": "Confirmed",
+    "REVENUE": "Revenue",
+    "OCCUPANCY": "Room occupancy"
+  },
+  "FORM": {
+    "TITLE": "New reservation",
+
+    "GUEST": "Guest",
+    "GUEST_PLACEHOLDER": "Name",
+    "GUEST_REQUIRED": "Name is required.",
+    "GUEST_MIN": "At least 2 letters.",
+    "ROOM": "Room",
+    "ROOM_REQUIRED": "Room is required.",
+    "ROOM_FORMAT": "Room has 3 digits (e.g. 101).",
+    "CHECK_IN": "Check-in",
+    "CHECK_OUT": "Check-out",
+    "PICK_DATE": "Pick a date.",
+    "PRICE": "Price / night (€)",
+    "PRICE_MIN": "Price must be at least 1.",
+    "SUBMIT": "Add",
+    "DATES_ORDER": "Check-out must be after check-in.",
+    "ROOM_TAKEN": "The room is taken for those dates.",
+    "CHECKING": "Checking availability..."
+  },
+  "PAGINATION": { "PREV": "‹ Previous", "NEXT": "Next ›" },
+  "STATUS": {
+    "all": "All",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled"
+  },
+  "FILTER": { "LABEL": "Filter by status" },
+  "LIST": {
+    "TITLE": "Reservations",
+    "SEARCH_LABEL": "Search (name or room)",
+    "SEARCH_PLACEHOLDER": "Search...",
+    "CLEAR_CANCELLED": "Clear cancelled",
+    "EMPTY": "No reservations to show."
+  },
+  "ITEM": {
+    "ROOM": "Room",
+    "NIGHTS": "nights",
+    "STATUS": "Status",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "CONFIRM_CANCEL": "Cancel this reservation?",
+    "CONFIRM_DELETE": "Delete this reservation permanently?"
+  },
+  "MESSAGES": {
+    "SERVER_ERROR": "Could not reach the server. Check that it is running.",
+    "ADDED": "Reservation added for {{name}}.",
+    "ADD_FAILED": "Adding failed.",
+    "STATUS_CHANGED": "Status changed to \"{{status}}\".",
+    "CHANGE_FAILED": "Change failed, it was reverted.",
+    "DELETED": "Reservation deleted.",
+    "DELETE_FAILED": "Delete failed, it was reverted.",
+    "CLEARED": "Cancelled reservations were cleared.",
+    "CLEAR_FAILED": "Clearing failed, it was reverted."
+  },
+  "DETAILS": {
+    "LOADING": "Loading...",
+    "ROOM": "Room",
+    "CHECK_IN": "Check-in",
+    "CHECK_OUT": "Check-out",
+    "NIGHTS": "Nights",
+    "TOTAL": "Total",
+    "STATUS": "Status",
+    "NOT_FOUND": "Reservation not found.",
+    "BACK": "Back to reservations"
+  },
+  "NOT_FOUND": {
+    "MESSAGE": "The page you are looking for was not found.",
+    "BACK": "Back to reservations"
+  },
+    "NAV": {
+    "HOME": "Home",
+    "HOTELS": "Hotels",
+    "ROOMS": "Rooms",
+    "BOOK": "Reserve",
+    "ABOUT": "About us",
+    "CONTACT": "Contact",
+    "ADMIN": "Manage reservations",
+    "ADMIN_ROOMS": "Manage rooms",
+    "RESERVATIONS": "Reservations"
+  },
+  "COMMON": {
+    "EMAIL": "Email",
+    "EMAIL_INVALID": "Enter a valid email.",
+    "PASSWORD": "Password",
+    "PASSWORD_MIN": "At least 6 characters.",
+    "LOGOUT": "Log out"
+  },
+  "LANGUAGE": {
+    "TITLE": "Select your language",
+    "SOON": "Coming soon"
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Log in",
+      "SUBMIT": "Log in",
+      "NO_ACCOUNT": "Don't have an account?",
+      "GO_SIGNUP": "Sign up",
+      "EMAIL_INVALID": "Enter a valid email.",
+      "PASSWORD_REQUIRED": "Password is required."
+    },
+    "SIGNUP": {
+      "TITLE": "Sign up",
+      "NAME": "Name",
+      "CONFIRM": "Confirm password",
+      "NAME_MIN": "At least 2 letters.",
+      "PASSWORD_MIN": "At least 6 characters.",
+      "CONFIRM_REQUIRED": "Confirm your password.",
+      "MISMATCH": "Passwords do not match.",
+      "SUBMIT": "Sign up",
+      "HAVE_ACCOUNT": "Already have an account?",
+      "GO_LOGIN": "Log in"
+    }
+  },
+  "FOOTER": { "TEXT": "All rights reserved" },
+  "HOME": {
+    "TITLE": "Welcome to Hotel Manager",
+    "SUBTITLE": "Pick your room and book in a few steps, no account needed.",
+    "BROWSE": "View rooms",
+    "CONTACT": "Contact us"
+  }
+}

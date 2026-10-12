@@ -1,0 +1,44 @@
+<li [class]="'item ' + reservation().status">
+  <div class="info">
+    <strong>
+      <a [routerLink]="['/reservations', reservation().id]">
+        {{ reservation().guest }} · {{ 'ITEM.ROOM' | translate }} {{ reservation().room }}
+      </a>
+    </strong>
+    <span class="meta">
+      {{ reservation().checkIn | date: 'dd MMM y' }} →
+      {{ reservation().checkOut | date: 'dd MMM y' }}
+      ({{ nights() }} {{ 'ITEM.NIGHTS' | translate }}) · {{ total() | currency: 'EUR' }}
+    </span>
+    <span class="meta">
+      {{ 'ITEM.STATUS' | translate }}: {{ 'STATUS.' + reservation().status | translate }}
+    </span>
+  </div>
+
+  <div class="actions">
+    @if (reservation().status !== 'confirmed') {
+      <button appButton (click)="setStatus('confirmed')">
+        {{ 'ITEM.CONFIRM' | translate }}
+      </button>
+    }
+    @if (reservation().status !== 'cancelled') {
+      <button
+        appButton
+        class="secondary"
+        [appConfirm]="'ITEM.CONFIRM_CANCEL' | translate"
+        (click)="setStatus('cancelled')"
+      >
+        {{ 'ITEM.CANCEL' | translate }}
+      </button>
+    }
+    <button
+      *appRole="'admin'"
+      appButton
+      class="danger"
+      [appConfirm]="'ITEM.CONFIRM_DELETE' | translate"
+      (click)="remove.emit(reservation().id)"
+    >
+      {{ 'ITEM.DELETE' | translate }}
+    </button>
+  </div>
+</li>

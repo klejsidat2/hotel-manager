@@ -1,0 +1,25 @@
+<h2>{{ 'AUTH.LOGIN.TITLE' | translate }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <app-control [label]="'COMMON.EMAIL' | translate">
+    <input type="email" formControlName="email" />
+  </app-control>
+  @if (form.controls.email.touched && form.controls.email.invalid) {
+    <p class="error">{{ 'COMMON.EMAIL_INVALID' | translate }}</p>
+  }
+
+  <app-control [label]="'COMMON.PASSWORD' | translate">
+    <input type="password" formControlName="password" />
+  </app-control>
+  @if (form.controls.password.touched && form.controls.password.invalid) {
+    <p class="error">{{ 'AUTH.LOGIN.PASSWORD_REQUIRED' | translate }}</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <button appButton type="submit" [disabled]="loading()">
+    {{ 'AUTH.LOGIN.SUBMIT' | translate }}
+  </button>
+</form>

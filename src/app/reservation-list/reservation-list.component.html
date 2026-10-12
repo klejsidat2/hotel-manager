@@ -1,0 +1,36 @@
+<app-card [title]="'LIST.TITLE' | translate">
+  <div class="toolbar">
+    <app-status-filter [value]="status()" (valueChange)="setStatus($event)" />
+
+    <label>
+      {{ 'LIST.SEARCH_LABEL' | translate }}
+      <input
+        name="search"
+        [(ngModel)]="search"
+        [placeholder]="'LIST.SEARCH_PLACEHOLDER' | translate"
+      />
+    </label>
+
+    <button appButton class="secondary" (click)="service.clearCancelled()">
+      {{ 'LIST.CLEAR_CANCELLED' | translate }}
+    </button>
+  </div>
+
+  <ul>
+    @for (r of pageItems(); track r.id) {
+      <app-reservation-item
+        [reservation]="r"
+        (statusChange)="service.setStatus($event.id, $event.status)"
+        (remove)="service.remove($event)"
+      />
+    } @empty {
+      <li class="empty">{{ 'LIST.EMPTY' | translate }}</li>
+    }
+  </ul>
+
+  <app-pagination
+    [page]="currentPage()"
+    [totalPages]="totalPages()"
+    (pageChange)="goToPage($event)"
+  />
+</app-card>

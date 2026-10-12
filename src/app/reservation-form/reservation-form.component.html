@@ -1,0 +1,64 @@
+<app-card [title]="'FORM.TITLE' | translate">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-control [label]="'FORM.GUEST' | translate">
+      <input #guestInput formControlName="guest" [placeholder]="'FORM.GUEST_PLACEHOLDER' | translate" />
+      @if (form.controls.guest.touched && form.controls.guest.invalid) {
+        <small class="error">
+          @if (form.controls.guest.hasError('required')) {
+            {{ 'FORM.GUEST_REQUIRED' | translate }}
+          } @else {
+            {{ 'FORM.GUEST_MIN' | translate }}
+          }
+        </small>
+      }
+    </app-control>
+
+    <app-control [label]="'FORM.ROOM' | translate">
+      <input formControlName="room" placeholder="101" />
+      @if (form.controls.room.touched && form.controls.room.invalid) {
+        <small class="error">
+          @if (form.controls.room.hasError('required')) {
+            {{ 'FORM.ROOM_REQUIRED' | translate }}
+          } @else {
+            {{ 'FORM.ROOM_FORMAT' | translate }}
+          }
+        </small>
+      }
+    </app-control>
+
+    <app-control [label]="'FORM.CHECK_IN' | translate">
+      <input type="date" formControlName="checkIn" />
+      @if (form.controls.checkIn.touched && form.controls.checkIn.invalid) {
+        <small class="error">{{ 'FORM.PICK_DATE' | translate }}</small>
+      }
+    </app-control>
+
+    <app-control [label]="'FORM.CHECK_OUT' | translate">
+      <input type="date" formControlName="checkOut" />
+      @if (form.controls.checkOut.touched && form.controls.checkOut.invalid) {
+        <small class="error">{{ 'FORM.PICK_DATE' | translate }}</small>
+      }
+    </app-control>
+
+    <app-control [label]="'FORM.PRICE' | translate">
+      <input type="number" formControlName="pricePerNight" />
+      @if (form.controls.pricePerNight.touched && form.controls.pricePerNight.invalid) {
+        <small class="error">{{ 'FORM.PRICE_MIN' | translate }}</small>
+      }
+    </app-control>
+
+    <button appButton type="submit" [disabled]="form.pending">
+      {{ 'FORM.SUBMIT' | translate }}
+    </button>
+  </form>
+
+  @if (form.hasError('datesOrder')) {
+    <p class="group-error">{{ 'FORM.DATES_ORDER' | translate }}</p>
+  }
+  @if (form.hasError('roomTaken')) {
+    <p class="group-error">{{ 'FORM.ROOM_TAKEN' | translate }}</p>
+  }
+  @if (form.pending) {
+    <p class="info">{{ 'FORM.CHECKING' | translate }}</p>
+  }
+</app-card>

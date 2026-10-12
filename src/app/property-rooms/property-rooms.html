@@ -1,0 +1,31 @@
+<section class="rooms">
+  <h1>Dhomat tona</h1>
+  <p class="lead">Zgjidh një dhomë për të parë fotot dhe detajet.</p>
+
+  @if (loading()) {
+    <p>Duke ngarkuar...</p>
+  } @else if (error()) {
+    <p class="error">Nuk u lidh me serverin.</p>
+  } @else if (rooms().length === 0) {
+    <p>Nuk ka dhoma ende.</p>
+  } @else {
+    <div class="grid">
+      @for (r of rooms(); track r.id) {
+        <article class="card">
+          @if (r.photos.length > 0) {
+            <img class="main-photo" [src]="r.photos[0].url" alt="Dhoma {{ r.number }}" />
+          } @else {
+            <div class="no-photo">Pa foto</div>
+          }
+          <span class="badge">{{ r.type }}</span>
+          <h2>Dhoma {{ r.number }}</h2>
+          @if (r.description) {
+            <p class="desc">{{ r.description }}</p>
+          }
+          <p class="price">{{ r.pricePerNight }} € / natë</p>
+          <a class="more" [routerLink]="['/rooms', r.id]">Shiko detajet →</a>
+        </article>
+      }
+    </div>
+  }
+</section>

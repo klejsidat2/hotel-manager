@@ -1,0 +1,33 @@
+<section class="hotels">
+  <h1>Hotelet</h1>
+
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Kërko sipas qytetit (p.sh. Tirane)"
+      [value]="city()"
+      (input)="onCityInput($event)"
+      (keyup.enter)="load()"
+    />
+    <button (click)="load()">Kërko</button>
+  </div>
+
+  @if (loading()) {
+    <p>Duke ngarkuar...</p>
+  } @else if (error()) {
+    <p class="error">Nuk u lidh me serverin. Kontrollo që booking-api po punon.</p>
+  } @else if (hotels().length === 0) {
+    <p>Nuk u gjet asnjë strukturë.</p>
+  } @else {
+    <div class="grid">
+      @for (h of hotels(); track h.id) {
+        <article class="card" [routerLink]="['/hotels', h.id]">
+          <span class="badge">{{ h.category }}</span>
+          <h2>{{ h.name }}</h2>
+          <p>📍 {{ h.city }}</p>
+          <p class="owner">Pronari: {{ h.ownerName }}</p>
+        </article>
+      }
+    </div>
+  }
+</section>

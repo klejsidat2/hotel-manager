@@ -1,0 +1,15 @@
+.rooms { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+.lead { color: #555; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+.card { position: relative; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: 0.4rem; transition: box-shadow 0.15s, border-color 0.15s; }
+.card:hover { border-color: #888; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+.card h2 { margin: 0.2rem 0; }
+.main-photo, .no-photo { width: 100%; height: 180px; border-radius: 6px; }
+.main-photo { object-fit: cover; display: block; }
+.no-photo { background: #edf2f7; color: #718096; display: flex; align-items: center; justify-content: center; }
+.badge { align-self: flex-start; font-size: 0.75rem; background: #eef; padding: 2px 8px; border-radius: 10px; }
+.desc { color: #555; font-size: 0.9rem; margin: 0; white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.price { font-weight: 600; margin: 0.2rem 0; }
+.more { margin-top: auto; color: #1a365d; font-weight: 600; text-decoration: none; }
+.more::after { content: ''; position: absolute; inset: 0; }
+.error { color: #c00; }
