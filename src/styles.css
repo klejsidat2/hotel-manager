@@ -15,3 +15,51 @@ main {
   margin: 1.5rem auto;
   padding: 0 1rem;
 }
+/* ===== Tema luksoze ===== */
+:root {
+  --ink: #1c1410;
+  --ink-soft: #2a1f18;
+  --gold: #c9a24a;
+  --gold-dark: #a8832f;
+  --cream: #f7f1e8;
+  --paper: #fffdf9;
+  --line: #e6dccd;
+  --text: #2b211a;
+  --muted: #7a6a5c;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-title: 'Playfair Display', Georgia, serif;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 600;
+}
+/* ===== Shfaqje e butë gjatë scroll ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+:root {
+  --font-brand: 'Cinzel', Georgia, serif;
+}

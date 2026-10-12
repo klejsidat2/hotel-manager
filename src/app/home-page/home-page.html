@@ -1,44 +1,83 @@
 <section class="hero">
-  <h1>Mirë se vini te Hotel NewInn</h1>
-  <p>Rehati në zemër të qytetit. Zgjidh dhomën tënde dhe rezervo në pak hapa, pa hapur llogari.</p>
-  <div class="actions">
-    <a routerLink="/book" class="btn">Rezervo tani</a>
-    <a routerLink="/rooms" class="btn secondary">Shiko dhomat</a>
+  @if (heroOk()) {
+    <img class="bg" src="/images/hot2.avif" alt="" (error)="heroOk.set(false)" />
+  }
+  <div class="shade"></div>
+
+  <div class="content">
+    <h1>Hotel NewInn</h1>
+    <span class="rule"></span>
+    <div class="actions">
+      <a routerLink="/book" class="btn gold">Rezervo tani</a>
+      <a routerLink="/rooms" class="btn ghost">Shiko dhomat</a>
+    </div>
   </div>
+
+  <span class="scroll" aria-hidden="true"></span>
 </section>
 
 @if (featured().length > 0) {
   <section class="block">
-    <h2>Dhomat tona</h2>
+    <div class="heading" appReveal>
+      <p class="kicker">Qëndrimi</p>
+      <h2>Dhomat tona</h2>
+      <span class="rule small"></span>
+    </div>
+
     <div class="grid">
-      @for (r of featured(); track r.id) {
-        <article class="card">
-          @if (r.photos.length > 0) {
-            <img [src]="r.photos[0].url" alt="Dhoma {{ r.number }}" />
-          }
-          <h3>Dhoma {{ r.number }} · {{ r.type }}</h3>
-          @if (r.description) {
-            <p>{{ r.description }}</p>
-          }
-          <p class="price">{{ r.pricePerNight }} € / natë</p>
-          <a routerLink="/book" [queryParams]="{ room: r.id }">Rezervo →</a>
-        </article>
+      @for (r of featured(); track r.id; let i = $index) {
+        <div appReveal [style.--reveal-delay]="i * 0.15 + 's'">
+          <article class="card">
+            <div class="media">
+              @if (r.photos.length > 0) {
+                <img [src]="r.photos[0].url" alt="Dhoma {{ r.number }}" />
+              } @else {
+                <div class="noimg">Pa foto</div>
+              }
+            </div>
+            <div class="body">
+              <span class="type">{{ r.type }}</span>
+              <h3>Dhoma {{ r.number }}</h3>
+              @if (r.description) {
+                <p class="desc">{{ r.description }}</p>
+              }
+              <p class="price">{{ r.pricePerNight }} € <span>/ natë</span></p>
+              <a [routerLink]="['/rooms', r.id]" class="more">Shiko detajet</a>
+            </div>
+          </article>
+        </div>
       }
     </div>
   </section>
 }
 
-<section class="block features">
-  <div>
-    <h3>Rezervim i shpejtë</h3>
-    <p>Pa llogari dhe pa kërkesa të panevojshme: vetëm emri, kontakti dhe datat.</p>
+<section class="features">
+  <div class="inner">
+    <div appReveal style="--reveal-delay: 0s">
+      <div class="feature">
+        <span class="num">01</span>
+        <h3>Rezervim i shpejtë</h3>
+        <p>Pa llogari dhe pa kërkesa të panevojshme: vetëm emri, kontakti dhe datat.</p>
+      </div>
+    </div>
+    <div appReveal style="--reveal-delay: 0.15s">
+      <div class="feature">
+        <span class="num">02</span>
+        <h3>Çmime të qarta</h3>
+        <p>Totali llogaritet automatikisht para se të konfirmosh rezervimin.</p>
+      </div>
+    </div>
+    <div appReveal style="--reveal-delay: 0.3s">
+      <div class="feature">
+        <span class="num">03</span>
+        <h3>Në qendër të qytetit</h3>
+        <p>Pranë atraksioneve kryesore, restoranteve dhe transportit publik.</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <h3>Çmime të qarta</h3>
-    <p>Totali llogaritet automatikisht para se të konfirmosh rezervimin.</p>
-  </div>
-  <div>
-    <h3>Në qendër të qytetit</h3>
-    <p>Pranë atraksioneve kryesore, restoranteve dhe transportit publik.</p>
-  </div>
+</section>
+
+<section class="cta" appReveal>
+  <h2>Gati për qëndrimin tuaj?</h2>
+  <a routerLink="/book" class="btn gold">Rezervo një dhomë</a>
 </section>

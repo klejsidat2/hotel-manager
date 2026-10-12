@@ -53,30 +53,56 @@ import { LanguageSwitcherComponent } from '../language-switcher/language-switche
   `,
   styles: `
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #1a365d;
-      color: white;
-      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 1.1rem 2rem;
+      background: var(--ink);
+      color: #d9cbb6;
+      border-bottom: 1px solid var(--gold);
     }
-    .brand {
-      color: white;
+        .brand {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
       text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 700;
     }
-    nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.8rem;
+    }
     nav a {
-      color: #cbd5e0;
+      color: #d9cbb6;
       text-decoration: none;
-      padding-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s;
+    }
+    nav a:hover {
+      color: var(--gold);
     }
     nav a.active {
-      color: white;
-      border-bottom: 2px solid white;
+      color: var(--gold);
+      border-bottom-color: var(--gold);
     }
-    .user { display: flex; align-items: center; gap: 0.75rem; }
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
   `,
 })
 export class HeaderComponent {

@@ -1,20 +1,372 @@
-.hero { text-align: center; padding: 4.5rem 1rem; background: linear-gradient(135deg, #1a365d, #2c5282); color: white; }
-.hero h1 { font-size: 2.4rem; margin: 0 0 0.6rem; }
-.hero p { max-width: 600px; margin: 0 auto 1.8rem; color: #e2e8f0; }
-.actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.btn { background: white; color: #1a365d; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
-.btn.secondary { background: transparent; color: white; border: 2px solid white; }
+:host {
+  display: block;
+}
 
-.block { max-width: 1000px; margin: 2.5rem auto; padding: 0 1rem; }
-.block h2 { margin-bottom: 1rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.2rem; }
-.card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; }
-.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
-.card h3 { margin: 0.6rem 0 0.3rem; }
-.card p { margin: 0.2rem 0; color: #555; }
-.card .price { font-weight: 600; color: #1a365d; }
-.card a { color: #1a365d; text-decoration: none; font-weight: 600; }
+/* ===== Hero me foto në lëvizje ===== */
+.hero {
+  position: relative;
+  min-height: min(88vh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: var(--cream);
+  background: radial-gradient(ellipse at 50% 0%, #4a3322 0%, var(--ink) 70%);
+}
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  animation: kenburns 28s ease-in-out infinite alternate;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 13, 9, 0.6) 0%,
+    rgba(20, 13, 9, 0.35) 45%,
+    rgba(20, 13, 9, 0.8) 100%
+  );
+}
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 4rem 1.5rem;
+}
+.content > * {
+  animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.content > :nth-child(1) { animation-delay: 0.1s; }
+.content > :nth-child(2) { animation-delay: 0.3s; }
+.content > :nth-child(3) { animation-delay: 0.5s; }
+.content > :nth-child(4) { animation-delay: 0.65s; }
+.content > :nth-child(5) { animation-delay: 0.85s; }
 
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-.features h3 { margin: 0 0 0.3rem; }
-.features p { margin: 0; color: #555; }
+.eyebrow {
+  margin: 0 0 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  color: var(--gold);
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #fff6e6;
+}
+.rule {
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 1.8rem auto;
+  background: var(--gold);
+}
+.rule.small {
+  width: 48px;
+  margin: 0.9rem auto 0;
+}
+.sub {
+  max-width: 540px;
+  margin: 0 auto 2.4rem;
+  color: #e6d9c4;
+  line-height: 1.8;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  width: 22px;
+  height: 36px;
+  border: 2px solid rgba(255, 246, 230, 0.55);
+  border-radius: 12px;
+  transform: translateX(-50%);
+}
+.scroll::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: wheel 1.8s ease-in-out infinite;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.14) translate(-1.5%, -1%); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes wheel {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+/* ===== Butonat ===== */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.1rem;
+  border-radius: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn.gold {
+  background: var(--gold);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+}
+.btn.gold:hover {
+  background: #dbb55c;
+}
+.btn.ghost {
+  color: #fff6e6;
+  border: 1px solid rgba(255, 246, 230, 0.7);
+}
+.btn.ghost:hover {
+  background: rgba(255, 246, 230, 0.12);
+}
+
+/* ===== Dhomat ===== */
+.block {
+  max-width: 1100px;
+  margin: 5rem auto 0;
+  padding: 0 1.5rem;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 2.6rem;
+}
+.kicker {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  color: var(--gold-dark);
+}
+.heading h2 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.8rem;
+}
+
+/* Kutitë janë paksa të zbehura; kur i prek ngrihen dhe zmadhohen */
+.card {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  opacity: 0.8;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s,
+    opacity 0.35s,
+    border-color 0.35s;
+}
+.card:hover {
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(-8px) scale(1.035);
+  border-color: var(--gold);
+  box-shadow: 0 22px 44px rgba(28, 20, 16, 0.22);
+}
+.media {
+  height: 230px;
+  overflow: hidden;
+  background: #efe6d8;
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) brightness(0.95);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s;
+}
+.card:hover .media img {
+  transform: scale(1.1);
+  filter: none;
+}
+.noimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted);
+}
+.body {
+  padding: 1.3rem 1.4rem 1.5rem;
+}
+.type {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold-dark);
+}
+.body h3 {
+  margin: 0.3rem 0 0.5rem;
+  font-size: 1.4rem;
+}
+.desc {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.price {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+}
+.price span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.more {
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+}
+.more::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* ===== Pse ne ===== */
+.features {
+  margin-top: 6rem;
+  padding: 4.5rem 1.5rem;
+  background: linear-gradient(180deg, var(--ink-soft), var(--ink));
+  color: #d9cbb6;
+}
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+.feature {
+  height: 100%;
+  padding: 1.9rem;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  border-radius: 6px;
+  background: rgba(255, 246, 230, 0.04);
+  opacity: 0.85;
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.3s,
+    background 0.3s,
+    opacity 0.3s;
+}
+.feature:hover {
+  opacity: 1;
+  transform: translateY(-6px) scale(1.03);
+  border-color: var(--gold);
+  background: rgba(255, 246, 230, 0.08);
+}
+.num {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--gold);
+}
+.features h3 {
+  margin: 0.3rem 0 0.5rem;
+  color: #fff6e6;
+  font-size: 1.25rem;
+}
+.features p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ===== Thirrja për veprim ===== */
+.cta {
+  text-align: center;
+  padding: 4.5rem 1.5rem 1.5rem;
+}
+.cta h2 {
+  margin: 0 0 1.8rem;
+  font-size: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg,
+  .content > *,
+  .scroll::after {
+    animation: none;
+  }
+}
+/* ===== Titulli i hotelit ===== */
+.hero h1 {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff3d6 0%, #e7c36a 55%, #b88a2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.5));
+}
+.hero .rule {
+  margin: 1.6rem auto 2.4rem;
+}
+.content > :nth-child(2) {
+  animation-delay: 0.4s;
+}
+.content > :nth-child(3) {
+  animation-delay: 0.65s;
+}
