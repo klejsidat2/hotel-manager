@@ -9,6 +9,7 @@ export interface Room {
   type: 'SINGLE' | 'DOUBLE' | 'SUITE';
   pricePerNight: number;
   description: string | null;
+  descriptionEn: string | null;
   propertyId: number;
   propertyName: string;
   photos: RoomPhoto[];
@@ -19,5 +20,6 @@ export interface RoomPayload {
   type: 'SINGLE' | 'DOUBLE' | 'SUITE';
   pricePerNight: number;
   description: string;
+  descriptionEn?: string;
   propertyId: number;
 }

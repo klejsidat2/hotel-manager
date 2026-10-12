@@ -1,12 +1,16 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
+
 import { HOTEL_ID } from '../hotel.config';
 import { PropertiesService } from '../properties.service';
+import { RevealDirective } from '../reveal.directive';
+import { RoomDescriptionPipe } from '../room-description.pipe';
 import { Room } from '../room.model';
 
 @Component({
   selector: 'app-property-rooms',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe, RevealDirective, RoomDescriptionPipe],
   templateUrl: './property-rooms.html',
   styleUrl: './property-rooms.css',
 })

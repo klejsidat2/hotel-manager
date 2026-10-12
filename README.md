@@ -61,7 +61,7 @@ public/i18n/                                                                    
 ## Known limitations
 
 - There are no automated tests yet.
-- Only the layout, login page and language switcher are translated. The public pages and the admin pages are written in Albanian, and room descriptions are whatever the admin entered.
+- The interface is available in Albanian and English. Room descriptions are entered by the admin in both languages, and the English page falls back to the Albanian text when the English one is empty.
 - The API URL is hard-coded rather than read from an environment file.
 - The JWT is kept in `localStorage`, which is simple but exposed to XSS. An httpOnly cookie would be safer.
 - The admin pages are not responsive on small screens.

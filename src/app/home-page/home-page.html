@@ -8,8 +8,8 @@
     <h1>Hotel NewInn</h1>
     <span class="rule"></span>
     <div class="actions">
-      <a routerLink="/book" class="btn gold">Rezervo tani</a>
-      <a routerLink="/rooms" class="btn ghost">Shiko dhomat</a>
+      <a routerLink="/book" class="btn gold">{{ 'PAGE_HOME.BOOK_NOW' | translate }}</a>
+      <a routerLink="/rooms" class="btn ghost">{{ 'PAGE_HOME.VIEW_ROOMS' | translate }}</a>
     </div>
   </div>
 
@@ -19,8 +19,8 @@
 @if (featured().length > 0) {
   <section class="block">
     <div class="heading" appReveal>
-      <p class="kicker">Qëndrimi</p>
-      <h2>Dhomat tona</h2>
+      <p class="kicker">{{ 'PAGE_HOME.KICKER' | translate }}</p>
+      <h2>{{ 'PAGE_HOME.OUR_ROOMS' | translate }}</h2>
       <span class="rule small"></span>
     </div>
 
@@ -30,19 +30,24 @@
           <article class="card">
             <div class="media">
               @if (r.photos.length > 0) {
-                <img [src]="r.photos[0].url" alt="Dhoma {{ r.number }}" />
+                <img
+                  [src]="r.photos[0].url"
+                  [alt]="'ROOM.NUMBER' | translate: { number: r.number }"
+                />
               } @else {
-                <div class="noimg">Pa foto</div>
+                <div class="noimg">{{ 'ROOM.NO_PHOTO' | translate }}</div>
               }
             </div>
             <div class="body">
-              <span class="type">{{ r.type }}</span>
-              <h3>Dhoma {{ r.number }}</h3>
-              @if (r.description) {
-                <p class="desc">{{ r.description }}</p>
+              <span class="type">{{ 'ROOM_TYPE.' + r.type | translate }}</span>
+              <h3>{{ 'ROOM.NUMBER' | translate: { number: r.number } }}</h3>
+              @if (r | roomDescription; as desc) {
+                <p class="desc">{{ desc }}</p>
               }
-              <p class="price">{{ r.pricePerNight }} € <span>/ natë</span></p>
-              <a [routerLink]="['/rooms', r.id]" class="more">Shiko detajet</a>
+              <p class="price">
+                {{ r.pricePerNight }} € <span>{{ 'ROOM.PER_NIGHT' | translate }}</span>
+              </p>
+              <a [routerLink]="['/rooms', r.id]" class="more">{{ 'ROOM.DETAILS' | translate }}</a>
             </div>
           </article>
         </div>
@@ -56,28 +61,28 @@
     <div appReveal style="--reveal-delay: 0s">
       <div class="feature">
         <span class="num">01</span>
-        <h3>Rezervim i shpejtë</h3>
-        <p>Pa llogari dhe pa kërkesa të panevojshme: vetëm emri, kontakti dhe datat.</p>
+        <h3>{{ 'PAGE_HOME.F1_TITLE' | translate }}</h3>
+        <p>{{ 'PAGE_HOME.F1_TEXT' | translate }}</p>
       </div>
     </div>
     <div appReveal style="--reveal-delay: 0.15s">
       <div class="feature">
         <span class="num">02</span>
-        <h3>Çmime të qarta</h3>
-        <p>Totali llogaritet automatikisht para se të konfirmosh rezervimin.</p>
+        <h3>{{ 'PAGE_HOME.F2_TITLE' | translate }}</h3>
+        <p>{{ 'PAGE_HOME.F2_TEXT' | translate }}</p>
       </div>
     </div>
     <div appReveal style="--reveal-delay: 0.3s">
       <div class="feature">
         <span class="num">03</span>
-        <h3>Në qendër të qytetit</h3>
-        <p>Pranë atraksioneve kryesore, restoranteve dhe transportit publik.</p>
+        <h3>{{ 'PAGE_HOME.F3_TITLE' | translate }}</h3>
+        <p>{{ 'PAGE_HOME.F3_TEXT' | translate }}</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="cta" appReveal>
-  <h2>Gati për qëndrimin tuaj?</h2>
-  <a routerLink="/book" class="btn gold">Rezervo një dhomë</a>
+  <h2>{{ 'PAGE_HOME.CTA_TITLE' | translate }}</h2>
+  <a routerLink="/book" class="btn gold">{{ 'PAGE_HOME.CTA_BUTTON' | translate }}</a>
 </section>
