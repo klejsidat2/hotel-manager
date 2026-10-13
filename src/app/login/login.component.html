@@ -1,25 +1,26 @@
 <h2>{{ 'AUTH.LOGIN.TITLE' | translate }}</h2>
+<p class="subtitle">{{ 'PAGE_LOGIN.SUBTITLE' | translate }}</p>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
   <app-control [label]="'COMMON.EMAIL' | translate">
-    <input type="email" formControlName="email" />
+    <input type="email" formControlName="email" autocomplete="username" />
   </app-control>
   @if (form.controls.email.touched && form.controls.email.invalid) {
     <p class="error">{{ 'COMMON.EMAIL_INVALID' | translate }}</p>
   }
 
   <app-control [label]="'COMMON.PASSWORD' | translate">
-    <input type="password" formControlName="password" />
+    <input type="password" formControlName="password" autocomplete="current-password" />
   </app-control>
   @if (form.controls.password.touched && form.controls.password.invalid) {
     <p class="error">{{ 'AUTH.LOGIN.PASSWORD_REQUIRED' | translate }}</p>
   }
 
   @if (error()) {
-    <p class="error">{{ error() }}</p>
+    <p class="alert">{{ 'PAGE_LOGIN.ERR_' + error() | translate }}</p>
   }
 
   <button appButton type="submit" [disabled]="loading()">
-    {{ 'AUTH.LOGIN.SUBMIT' | translate }}
+    {{ (loading() ? 'PAGE_LOGIN.SENDING' : 'AUTH.LOGIN.SUBMIT') | translate }}
   </button>
 </form>

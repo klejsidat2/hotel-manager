@@ -1,4 +1,11 @@
 {
+    "PAGE_LOGIN": {
+    "SUBTITLE": "Area reserved for hotel staff.",
+    "SENDING": "Signing in...",
+    "ERR_CREDENTIALS": "Wrong email or password.",
+    "ERR_SERVER": "Could not reach the server. Check that booking-api is running.",
+    "ERR_GENERIC": "Sign-in failed. Please try again."
+  },
     "PAGE_ADMIN_BOOKINGS": {
     "TITLE": "Reservations",
     "STAT_TOTAL": "Total",

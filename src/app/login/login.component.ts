@@ -13,12 +13,13 @@ import { ControlComponent } from '../control/control.component';
   imports: [ReactiveFormsModule, TranslatePipe, ControlComponent, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-})
+})cd C:\Users\user\projekte\hotel-manager
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
 
-  error = signal('');
+  // çelësi i gabimit, përkthehet te template (PAGE_LOGIN.ERR_...)
+  error = signal<'' | 'CREDENTIALS' | 'SERVER' | 'GENERIC'>('');
   loading = signal(false);
 
   form = new FormGroup({
@@ -50,11 +51,7 @@ export class LoginComponent {
       error: (err: HttpErrorResponse) => {
         this.loading.set(false);
         this.error.set(
-          err.status === 401
-            ? 'Email ose fjalëkalim i gabuar.'
-            : err.status === 0
-              ? 'Nuk u lidh me serverin. Kontrollo që booking-api po punon.'
-              : 'Hyrja dështoi. Provo përsëri.',
+          err.status === 401 ? 'CREDENTIALS' : err.status === 0 ? 'SERVER' : 'GENERIC',
         );
       },
     });

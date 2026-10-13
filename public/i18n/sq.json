@@ -1,4 +1,11 @@
 {
+    "PAGE_LOGIN": {
+    "SUBTITLE": "Zonë e rezervuar për stafin e hotelit.",
+    "SENDING": "Duke hyrë...",
+    "ERR_CREDENTIALS": "Email ose fjalëkalim i gabuar.",
+    "ERR_SERVER": "Nuk u lidh me serverin. Kontrollo që booking-api po punon.",
+    "ERR_GENERIC": "Hyrja dështoi. Provo përsëri."
+  },
     "PAGE_ADMIN_BOOKINGS": {
     "TITLE": "Rezervimet",
     "STAT_TOTAL": "Gjithsej",
