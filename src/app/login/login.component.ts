@@ -13,7 +13,7 @@ import { ControlComponent } from '../control/control.component';
   imports: [ReactiveFormsModule, TranslatePipe, ControlComponent, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-})cd C:\Users\user\projekte\hotel-manager
+})
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
